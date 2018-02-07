@@ -29,8 +29,6 @@ plt.title("Time to Calculate n!")
 plt.savefig("factorial_times.png", transparent=False)
 
 
-
-
 # FIBONACCI
 # collect the calculation times for two Fibonacci algorithm types
 algorithm_types = ['iterative', 'recursive']

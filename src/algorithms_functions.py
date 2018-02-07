@@ -29,3 +29,41 @@ def factorial_compare(n, algorithm_type):
     else:
         math.factorial(n)
     return time.time() - start_time
+
+
+# original Fibonacci definition historicallly starts with 1, 1, but more modern usage starts with 0, 1
+def fibonacci_start(n, start):
+    modern_start = [0, 1]
+    historical_start = [1, 1]
+    if start == 0:
+        return modern_start[n - 1]
+    elif start == 1:
+        return historical_start[n - 1]
+
+# function for calculating nth Fibonacci term iteratively
+def iterative_fibonacci(n, start):
+    if n < 3:
+        return fibonacci_start(n, start)
+    else:
+        last = 1
+        previous = start
+        for i in range(3, n+1):
+            next = last + previous
+            previous = last
+            last = next
+        return next
+
+# function for calculating nth Fibonacci term recursively
+def recursive_fibonacci(n, start):
+    if n < 3:
+        return fibonacci_start(n, start)
+    else:
+        return recursive_fibonacci(n-1, start) + recursive_fibonacci(n-2, start)
+
+def fibonacci_compare(n, start, algorithm_type):
+    start_time = time.time()
+    if algorithm_type == 'iterative':
+        iterative_fibonacci(n, start)
+    elif algorithm_type == 'recursive':
+        recursive_fibonacci(n, start)
+    return time.time() - start_time

@@ -78,4 +78,4 @@ plt.plot(n_points, recur, label="Recursive")
 plt.ylim(ymin=0, ymax=0.01)
 plt.legend()
 plt.title("Time to Calculate nth Fibonacci")
-plt.show();    
+plt.show();
